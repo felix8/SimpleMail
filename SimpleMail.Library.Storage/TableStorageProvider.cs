@@ -83,10 +83,10 @@ namespace SimpleMail.Library.Storage
         /// <summary>
         /// Writes email information to Azure Table Storage
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="email"></param>
-        /// <param name="attachmentUrls"></param>
-        /// <returns></returns>
+        /// <param name="sender">Sender of the email.</param>
+        /// <param name="email">Email information</param>
+        /// <param name="attachmentUrls">Links to attachments uploaded to Blob Storage</param>
+        /// <returns>Tuple containing the Primary and Row keys for the table entry</returns>
         public async Task<Tuple<string, string>> Write(string sender, Dictionary<string, string> email, string attachmentUrls)
         {
             var entity = TableStorageProvider.Update(sender, email, attachmentUrls);
@@ -95,6 +95,12 @@ namespace SimpleMail.Library.Storage
             return new Tuple<string, string>(entity.PartitionKey, entity.RowKey);
         }
 
+        /// <summary>
+        /// Read email metadata from Azure Table Storage
+        /// </summary>
+        /// <param name="senderEmailAddress">Sender's email address</param>
+        /// <param name="emailUniqueId">A GUID serving as unique id for this table row</param>
+        /// <returns>Dictionary containing email metadata</returns>
         public Dictionary<string, object> Read(string senderEmailAddress, string emailUniqueId)
         {
             var operation = TableOperation.Retrieve<DynamicTableEntity>(senderEmailAddress, emailUniqueId);
@@ -119,7 +125,31 @@ namespace SimpleMail.Library.Storage
             if (entity.Properties.ContainsKey("Subject"))
                 entries["Subject"] = entity.Properties["Subject"].StringValue;
 
+            // update entries as "read"
             return entries;
+        }
+
+        /// <summary>
+        /// Marks a given email as sent.
+        /// </summary>
+        /// <param name="senderEmailAddress">Sender's email address</param>
+        /// <param name="emailUniqueId">A GUID serving as unique id for this table row</param>
+        /// <returns>Void</returns>
+        public void MarkSent(string senderEmailAddress, string emailUniqueId)
+        {
+            var operation = TableOperation.Retrieve<DynamicTableEntity>(senderEmailAddress, emailUniqueId);
+            var result = this.Table.Execute(operation);
+            if (result == null)
+                return;
+
+            var entity = (DynamicTableEntity)result.Result;
+
+            // mark as sent
+            entity.Properties["Sent"] = false;
+
+            // upload back to table storage
+            var updateOperation = TableOperation.Replace(entity);
+            Table.Execute(updateOperation);
         }
     }
 }

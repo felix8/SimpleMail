@@ -98,6 +98,9 @@ namespace SimpleMail.SendGrid.Worker
 
                         // send mail
                         EmailProvider.Send(EmailServiceProviders.SendGrid, message, enableSsl: true);
+
+                        // mark email as sent
+                        TableStorageProvider.MarkSent(senderEmailAddress, emailUniqueId);
                     }
 
                     // flag the message as processed at this point
@@ -105,6 +108,8 @@ namespace SimpleMail.SendGrid.Worker
                 }
                 catch (Exception ex)
                 {
+                    // currently only writing to log
+                    // @todo: way more complex error handling logic should be here
                     Trace.Write(ex);
 
                     // For any exception during message receive,

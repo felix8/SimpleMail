@@ -98,6 +98,9 @@ namespace SimpleMail.Amazon.Worker
 
                         // send mail
                         EmailProvider.Send(EmailServiceProviders.Amazon, message, enableSsl: true);
+
+                        // mark email as sent
+                        TableStorageProvider.MarkSent(senderEmailAddress, emailUniqueId);
                     }
 
                     // flag the message as processed at this point
