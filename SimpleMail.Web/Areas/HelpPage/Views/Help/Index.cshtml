@@ -1,0 +1,44 @@
+@using System.Web.Http
+@using System.Web.Http.Controllers
+@using System.Web.Http.Description
+@using System.Collections.ObjectModel
+@using SimpleMail.Web.Areas.HelpPage.Models
+@model Collection<ApiDescription>
+
+@{
+    ViewBag.Title = "SimpleMailv1.0 API Help Page";
+
+    // Group APIs by controller
+    ILookup<HttpControllerDescriptor, ApiDescription> apiGroups = Model.ToLookup(api => api.ActionDescriptor.ControllerDescriptor);
+}
+
+<link type="text/css" href="~/Areas/HelpPage/HelpPage.css" rel="stylesheet" />
+<header class="help-page">
+    <div class="content-wrapper">
+        <div class="float-left">
+            <h1>@ViewBag.Title</h1>
+        </div>
+    </div>
+</header>
+<div id="body" class="help-page">
+    <section class="featured">
+        <div class="alert alert-dismissible alert-warning">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <h4>Uh oh!</h4>
+            <p>Help Pages/Apidocs are giving me some trouble at the moment. API description is missing! Track this issue <a href="https://github.com/felix8/SimpleMail/issues/6" class="alert-link">here</a>.</p>
+        </div>
+        <div class="content-wrapper">
+            <h2>Introduction</h2>
+            <p>
+                Currently there are only a few public APIs available here. For an in-depth view,
+                have a look at the <a href="https://github.com/felix8/simplemail">GitHub</a> page for this project!
+            </p>
+        </div>
+    </section>
+    <section class="content-wrapper main-content clear-fix">
+        @foreach (var group in apiGroups)
+        {
+            @Html.DisplayFor(m => group, "ApiGroup")
+        }
+    </section>
+</div>

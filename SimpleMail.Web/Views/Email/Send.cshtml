@@ -1,0 +1,85 @@
+﻿<div class="jumbotron">
+    <h1>SimpleMail</h1>
+    <p class="lead">So far so good. Fill in the blanks and click <em>Send!</em></p>
+</div>
+<div class="container">
+    <form class="form-horizontal" method="post" enctype="multipart/form-data" action="~/email/send">
+        <div class="form-group">
+            <label for="fromEmail" class="col-lg-2 control-label">From</label>
+            <div class="col-lg-10">
+                <input type="email" class="form-control" id="fromEmail" placeholder="flipmarigold@insanereservoir.net (SimpleMail Admin)" disabled>
+                <span class="help-block">To comply with most email provider's verified sender policy, your email will send from the above address.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="toEmail" class="col-lg-2 control-label">To</label>
+            <div class="col-lg-10">
+                <input type="email" name="ToRecipientEmailIds" class="form-control" id="toEmail" placeholder="john.doe@gmail.com, tim.harris@live.com" multiple required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="ccEMail" class="col-lg-2 control-label">CC</label>
+            <div class="col-lg-10">
+                <input type="email" name="CcRecipientEmailIds" class="form-control" id="ccEMail" placeholder="timothy@gmail.com, sanjay@live.com" multiple>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="bccEmail" class="col-lg-2 control-label">BCC</label>
+            <div class="col-lg-10">
+                <input type="email" name="BccRecipientEmailIds" class="form-control" id="bccEmail" placeholder="sfo_employees@contoso.com" multiple>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="subject" class="col-lg-2 control-label">Subject</label>
+            <div class="col-lg-10">
+                <input class="form-control" name="Subject" id="subject" placeholder="I just used SimpleMail!" multiple>
+                <span class="help-block">Subjects aren't mandatory just like pants aren't mandatory.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="message" class="col-lg-2 control-label">Message</label>
+            <div class="col-lg-10">
+                <textarea name="Message" class="form-control" rows="3" id="message" required></textarea>
+                <span class="help-block">Write the body of your e-mail here.</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="files_selected" class="col-lg-2 control-label">Attachments</label>
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <span class="btn btn-link btn-file">
+                        Browse&hellip; <input name="attachments" type="file" multiple>
+                    </span>
+                </span>
+                <input id="files_selected" type="text" class="form-control" readonly>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <button type="submit" class="btn btn-primary">Send</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    $(document).on("change", ".btn-file :file", function () {
+        var input = $(this),
+            numFiles = input.get(0).files ? input.get(0).files.length : 1,
+            label = input.val().replace(/\\/g, "/").replace(/.*\//, "");
+        input.trigger("fileselect", [numFiles, label]);
+    });
+
+    $(document).ready(function () {
+        $(".btn-file :file").on("fileselect", function (event, numFiles, label) {
+
+            var input = $(this).parents(".input-group").find(":text"),
+                log = numFiles > 1 ? numFiles + " files selected" : label;
+
+            if (input.length) {
+                input.val(log);
+            } else {
+                if (log) alert(log);
+            }
+        });
+    });
+</script>

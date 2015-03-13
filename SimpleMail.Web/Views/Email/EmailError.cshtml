@@ -1,0 +1,7 @@
+﻿@model SimpleMail.Web.Models.EmailErrorModel
+@{
+    ViewBag.Title = "Send Failure.";
+}
+
+<h1 class="text-danger">Error Code @Html.DisplayFor(model => model.ErrorCode).</h1>
+<h2 class="text-danger">@Html.DisplayFor(model => model.Message).</h2>
