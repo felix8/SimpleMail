@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="SimpleMail.Azure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2014-06.2.4">
+  <Role name="SimpleMail.Web">
+    <Instances count="1" />
+    <ConfigurationSettings />
+  </Role>
+  <Role name="SimpleMail.Amazon.Worker">
+    <Instances count="1" />
+    <ConfigurationSettings />
+  </Role>
+  <Role name="SimpleMail.SendGrid.Worker">
+    <Instances count="1" />
+    <ConfigurationSettings />
+  </Role>
+</ServiceConfiguration>

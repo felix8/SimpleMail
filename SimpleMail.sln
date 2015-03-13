@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "SimpleMail.Azure", "SimpleMail.Azure\SimpleMail.Azure.ccproj", "{6D823B07-DDB5-42A4-A8CB-28F0FE19069B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMail.Web", "SimpleMail.Web\SimpleMail.Web.csproj", "{F69C7EA0-4D6E-480A-A7AB-8541CA6360F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMail.Web.Tests", "SimpleMail.Web.Tests\SimpleMail.Web.Tests.csproj", "{116588D5-0B60-4306-B94A-BF49E8A97935}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMail.Amazon.Worker", "SimpleMail.Amazon.Worker\SimpleMail.Amazon.Worker.csproj", "{836204DB-8FCA-41D1-9DA9-EF0BB5478D14}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMail.Library.Storage", "SimpleMail.Library.Storage\SimpleMail.Library.Storage.csproj", "{D8E601EA-3EB2-48FC-A0EB-03E3AE2727A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleMail.SendGrid.Worker", "SimpleMail.SendGrid.Worker\SimpleMail.SendGrid.Worker.csproj", "{990C65D5-DF60-43C9-A0F5-B6ABE0819CCF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6D823B07-DDB5-42A4-A8CB-28F0FE19069B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D823B07-DDB5-42A4-A8CB-28F0FE19069B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D823B07-DDB5-42A4-A8CB-28F0FE19069B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D823B07-DDB5-42A4-A8CB-28F0FE19069B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F69C7EA0-4D6E-480A-A7AB-8541CA6360F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F69C7EA0-4D6E-480A-A7AB-8541CA6360F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F69C7EA0-4D6E-480A-A7AB-8541CA6360F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F69C7EA0-4D6E-480A-A7AB-8541CA6360F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{116588D5-0B60-4306-B94A-BF49E8A97935}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{116588D5-0B60-4306-B94A-BF49E8A97935}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{116588D5-0B60-4306-B94A-BF49E8A97935}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{116588D5-0B60-4306-B94A-BF49E8A97935}.Release|Any CPU.Build.0 = Release|Any CPU
+		{836204DB-8FCA-41D1-9DA9-EF0BB5478D14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{836204DB-8FCA-41D1-9DA9-EF0BB5478D14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{836204DB-8FCA-41D1-9DA9-EF0BB5478D14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{836204DB-8FCA-41D1-9DA9-EF0BB5478D14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8E601EA-3EB2-48FC-A0EB-03E3AE2727A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8E601EA-3EB2-48FC-A0EB-03E3AE2727A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8E601EA-3EB2-48FC-A0EB-03E3AE2727A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8E601EA-3EB2-48FC-A0EB-03E3AE2727A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{990C65D5-DF60-43C9-A0F5-B6ABE0819CCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{990C65D5-DF60-43C9-A0F5-B6ABE0819CCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{990C65D5-DF60-43C9-A0F5-B6ABE0819CCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{990C65D5-DF60-43C9-A0F5-B6ABE0819CCF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

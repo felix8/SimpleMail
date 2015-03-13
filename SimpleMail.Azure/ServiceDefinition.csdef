@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="SimpleMail.Azure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2014-06.2.4">
+  <WebRole name="SimpleMail.Web" vmsize="Small">
+    <Sites>
+      <Site name="Web">
+        <Bindings>
+          <Binding name="Endpoint1" endpointName="Endpoint1" />
+        </Bindings>
+      </Site>
+    </Sites>
+    <Endpoints>
+      <InputEndpoint name="Endpoint1" protocol="http" port="80" />
+    </Endpoints>
+  </WebRole>
+  <WorkerRole name="SimpleMail.Amazon.Worker" vmsize="Small">
+    <LocalResources>
+      <LocalStorage name="CacheStorage" sizeInMB="20480" cleanOnRoleRecycle="true" />
+    </LocalResources>
+  </WorkerRole>
+  <WorkerRole name="SimpleMail.SendGrid.Worker" vmsize="Small" />
+</ServiceDefinition>
