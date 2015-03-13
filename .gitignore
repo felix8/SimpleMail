@@ -1,1 +1,8 @@
 *.dll
+SimpleMail.Amazon.Worker/bin/Debug/Microsoft.Data.Edm.xml
+SimpleMail.Amazon.Worker/bin/Debug/Microsoft.Data.OData.xml
+SimpleMail.Amazon.Worker/bin/Debug/Microsoft.Data.Services.Client.xml
+SimpleMail.Amazon.Worker/bin/Debug/Microsoft.WindowsAzure.Storage.xml
+SimpleMail.Amazon.Worker/bin/Debug/Microsoft.WindowsAzure.Configuration.xml
+SimpleMail.Amazon.Worker/bin/Debug/Newtonsoft.Json.xml
+SimpleMail.Amazon.Worker/bin/Debug/System.Spatial.xml
