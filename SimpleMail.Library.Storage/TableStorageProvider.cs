@@ -145,7 +145,7 @@ namespace SimpleMail.Library.Storage
             var entity = (DynamicTableEntity)result.Result;
 
             // mark as sent
-            entity.Properties["Sent"] = false;
+            entity.Properties["Sent"] = true;
 
             // upload back to table storage
             var updateOperation = TableOperation.Replace(entity);
