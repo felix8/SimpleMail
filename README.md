@@ -109,7 +109,5 @@ I'll add more pitfalls as I think of them.
 
 #### Final Notes
 
-For bugs check out [issues](https://github.com/felix8/SimpleMail/issues).
-
 Thanks for reading and I would love to hear feedback!
 Arijit.
